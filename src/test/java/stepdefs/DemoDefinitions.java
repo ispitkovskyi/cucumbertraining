@@ -70,10 +70,10 @@ public class DemoDefinitions {
     @When("^I can login into my account as \"(.*)\" and \"(.*)\"$")
     public void i_can_login_into_account_parameterized(String username, String password) throws Exception{
         System.out.println("I can login into my account WORKS!");
-        getDriver().findElement(By.xpath(".//a[text()='My Account']")).click();
+        getDriver().findElement(By.xpath(".//button[@id='login']")).click();
         getDriver().findElement(By.id("userName")).sendKeys(username);
         getDriver().findElement(By.id("password")).sendKeys(password);
-        getDriver().findElement(By.name("login")).click();
+        getDriver().findElement(By.id("login")).click();
         System.out.println("Login Successfully");
         //throw new PendingException();
     }

@@ -10,16 +10,16 @@ Feature: Demo feature
     #Then I can logout from my account successfully
 
   #Simple test
-  Scenario: Demonstrating how Cucumber-JVM works
-    Given I can open web page and dismiss alert
-    When I can login into my account
-    Then I can logout from my account successfully
-
-  #Parameterized test
 #  Scenario: Demonstrating how Cucumber-JVM works
 #    Given I can open web page and dismiss alert
-#    When I can login into my account as "igortest_1" and "Test@123Test!123"
+#    When I can login into my account
 #    Then I can logout from my account successfully
+
+  #Parameterized test
+  Scenario: Demonstrating how Cucumber-JVM works
+    Given I can open web page and dismiss alert
+    When I can login into my account as "igortest_1" and "Test@123Test!123"
+    Then I can logout from my account successfully
 
   #Data-Driven tests
 #  Scenario Outline: Demonstrating how Cucumber-JVM works
