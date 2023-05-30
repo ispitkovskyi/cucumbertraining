@@ -4,6 +4,7 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +28,8 @@ public class DemoDefinitions {
     @cucumber.api.java.Before(order = 0)
     public WebDriver getDriver(){
         if(driver == null || ((RemoteWebDriver) driver).getSessionId()==null) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+            //System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+            WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
             Map<String, Object> prefs = new HashMap();
@@ -46,9 +48,9 @@ public class DemoDefinitions {
         System.out.println("I run it within my IDE WORKS!");
         getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //Launch the Online Store Website
-        getDriver().get("http://www.store.demoqa.com");
+        getDriver().get("https://demoqa.com/books");
 
-        getDriver().findElement(By.xpath(".//a[text()='Dismiss']")).click();
+        getDriver().findElement(By.xpath(".//input[@id='searchBox']")).click();
         //throw new PendingException();
     }
 
@@ -56,10 +58,10 @@ public class DemoDefinitions {
     @When("^I can login into my account$")
     public void i_can_login_into_account() throws Exception{
         System.out.println("I can login into my account WORKS!");
-        getDriver().findElement(By.xpath(".//a[text()='My Account']")).click();
-        getDriver().findElement(By.id("username")).sendKeys("igortest_1");
+        getDriver().findElement(By.xpath(".//button[@id='login']")).click();
+        getDriver().findElement(By.id("userName")).sendKeys("igortest_1");
         getDriver().findElement(By.id("password")).sendKeys("Test@123Test!123");
-        getDriver().findElement(By.name("login")).click();
+        getDriver().findElement(By.id("login")).click();
         System.out.println("Login Successfully");
         //throw new PendingException();
     }
@@ -69,7 +71,7 @@ public class DemoDefinitions {
     public void i_can_login_into_account_parameterized(String username, String password) throws Exception{
         System.out.println("I can login into my account WORKS!");
         getDriver().findElement(By.xpath(".//a[text()='My Account']")).click();
-        getDriver().findElement(By.id("username")).sendKeys(username);
+        getDriver().findElement(By.id("userName")).sendKeys(username);
         getDriver().findElement(By.id("password")).sendKeys(password);
         getDriver().findElement(By.name("login")).click();
         System.out.println("Login Successfully");
@@ -83,7 +85,7 @@ public class DemoDefinitions {
         for (Map<String, String> data : usercredentials.asMaps(String.class, String.class)) {
             System.out.println(String.format("Login with credentials %s/%s", data.get("Username"), data.get("Password")));
             getDriver().findElement(By.xpath(".//a[text()='My Account']")).click();
-            getDriver().findElement(By.id("username")).sendKeys(data.get("Username"));
+            getDriver().findElement(By.id("userName")).sendKeys(data.get("Username"));
             getDriver().findElement(By.id("password")).sendKeys(data.get("Password"));
             getDriver().findElement(By.name("login")).click();
             System.out.println("I can logout from my account successfully WORKS!");
@@ -100,7 +102,7 @@ public class DemoDefinitions {
         for (Credentials credentials : usercredentials) {
             System.out.println(String.format("Login with credentials %s/%s", credentials.getUsername(), credentials.getPassword()));
             getDriver().findElement(By.xpath(".//a[text()='My Account']")).click();
-            getDriver().findElement(By.id("username")).sendKeys(credentials.getUsername());
+            getDriver().findElement(By.id("userName")).sendKeys(credentials.getUsername());
             getDriver().findElement(By.id("password")).sendKeys(credentials.getPassword());
             getDriver().findElement(By.name("login")).click();
             System.out.println("I can logout from my account successfully WORKS!");
@@ -114,7 +116,7 @@ public class DemoDefinitions {
     public void i_can_logout_from_account() throws Exception{
         System.out.println("I can logout from my account successfully WORKS!");
         // Find the element that's ID attribute is 'account_logout' (Log Out)
-        getDriver().findElement (By.xpath(".//a[text()='Logout']")).click();
+        getDriver().findElement (By.xpath(".//button[text()='Log out']")).click();
         // Print a Log In message to the screen
         System.out.println("LogOut Successfully");
         // Close the driver
