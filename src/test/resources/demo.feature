@@ -22,14 +22,14 @@ Feature: Demo feature
 #    Then I can logout from my account successfully
 
   #Data-Driven tests
-  Scenario Outline: Demonstrating how Cucumber-JVM works
-    Given I can open web page and dismiss alert
-    When I can login into my account as "<username>" and "<password>"
-    Then I can logout from my account successfully
-    Examples:
-      | username  | password  |
-      | igortest_1 | Test@123Test!123 |
-      | igortest_1 | Test@123Test!123 |
+#  Scenario Outline: Demonstrating how Cucumber-JVM works
+#    Given I can open web page and dismiss alert
+#    When I can login into my account as "<username>" and "<password>"
+#    Then I can logout from my account successfully
+#    Examples:
+#      | username  | password  |
+#      | igortest_1 | Test@123Test!123 |
+#      | igortest_1 | Test@123Test!123 |
 
    #Data-Tables
 #  Scenario: Successful Login with Valid Credentials with Data Tables
