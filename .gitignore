@@ -1,0 +1,10 @@
+.idea
+*.iml
+*.ipr
+*.exe
+target/*
+allure-results/*
+logs/*
+test-output/*
+src/main/resources/environment.properties
+reportportal/data

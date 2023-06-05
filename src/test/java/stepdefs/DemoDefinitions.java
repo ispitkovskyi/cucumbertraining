@@ -24,8 +24,8 @@ public class DemoDefinitions {
         getDriver();
     }
 
-    @Before
-    @cucumber.api.java.Before(order = 0)
+//    @Before
+//    @cucumber.api.java.Before(order = 0)
     public WebDriver getDriver(){
         if(driver == null || ((RemoteWebDriver) driver).getSessionId()==null) {
             //System.setProperty("webdriver.chrome.driver", "chromedriver.exe");

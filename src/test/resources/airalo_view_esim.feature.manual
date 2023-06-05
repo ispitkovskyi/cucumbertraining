@@ -1,0 +1,61 @@
+Feature: Searching for a local eSIM
+          As an end user
+          In order to connect to the internet
+          I want to find and buy a local eSIM
+
+
+  Scenario: eSIM search for Canada
+    Given I am on the Airalo homepage
+    And Local eSIMs tab is active by default
+    When I search Airalo for Canada
+    Then I should see Canada's eSIMs listed as a Local option
+    And I close the browser
+
+  Scenario: eSIM search for Africa
+    Given I am on the Airalo homepage
+    When I tap on Regional eSIMs Tab
+    Then I should see Africa, Asia, Carribean Islands, Europe, Latin America, Middle East and North Africa regions
+    When I search for Africa
+    Then I should see Africa's eSIMs listed
+    And I close the browser
+
+  Scenario: Search for Global eSIM
+    Given I am on the Airalo homepage
+    When I tap on Global eSIMs Tab
+    Then I should see Global eSIMs listed
+    And I close the browser
+
+
+  #Parameterized test
+#  Scenario: Demonstrating how Cucumber-JVM works
+#    Given I can open web page and dismiss alert
+#    When I can login into my account as "igortest_1" and "Test@123Test!123"
+#    Then I can logout from my account successfully
+
+  #Data-Driven tests
+#  Scenario Outline: Demonstrating how Cucumber-JVM works
+#    Given I can open web page and dismiss alert
+#    When I can login into my account as "<username>" and "<password>"
+#    Then I can logout from my account successfully
+#    Examples:
+#      | username  | password  |
+#      | igortest_1 | Test@123Test!123 |
+#      | igortest_1 | Test@123Test!123 |
+
+   #Data-Tables
+#  Scenario: Successful Login with Valid Credentials with Data Tables
+#    Given I can open web page and dismiss alert
+#    When I can login into my account and logout many times with Data Tables
+#      | Username   | Password |
+#      | igortest_1 | Test@123Test!123 |
+#      | igortest_1 | Test@123Test!123 |
+#    Then I'm happy now
+
+   #Class-Objects
+#  Scenario: Successful Login with Valid Credentials with Class Objects
+#    Given I can open web page and dismiss alert
+#    When I can login into my account with Credentials and logout many times with Class Objects
+#      | Username   | Password |
+#      | igortest_1 | Test@123Test!123 |
+#      | igortest_1 | Test@123Test!123 |
+#    Then I'm happy now

@@ -1,0 +1,37 @@
+Feature: Viewing customer reviews
+          As a End user,
+          I want to see customer reviews.
+          Acceptance Criteria: End-users can be able to change/slide customer reviews.
+
+
+  Scenario: Navigation through customer reviews
+    Given I am on the Airalo homepage
+    And There is "Customers Have to Say" area
+    When I scroll the page down to the “Customers Have to Say” area
+    Then "swipe prev" button is disabled
+    And "swipe next" button is enabled
+    And "Great Support" review thumbnail is active
+    And The first pagination bullet is active
+    And "Great Service" review thumbnail is next
+    When Tap "swipe next" button
+    Then "Great Support" thumbnail appears as "previous"
+    And "swipe left" button is enabled
+    And "swipe right" button is enabled
+    And The second pagination bullet is active
+    And "Great Service" thumbnail appears as active
+    When Tap "swipe next" button
+    And Tap "swipe next" button
+    And Tap "swipe next" button
+    And Tap "swipe next" button
+    Then "Effortless connection" thumbnail appears as active
+    And "swipe left" button is enabled
+    And "swipe right" button is disabled
+    And The sixth pagination bullet is active
+    And "Airalo is extremely helpful" thumbnail appears as "previous"
+    When Click the first pagination bullet
+    And "Great Support" review thumbnail is active
+    And The first pagination bullet is active
+    And "Great Service" review thumbnail is next
+    Then "swipe prev" button is disabled
+    And "swipe next" button is enabled
+    And I close the browser
