@@ -16,9 +16,10 @@ public class SearchResultsPage extends Page {
     @FindBy(xpath = searchResultsXpath + "/div[descendant-or-self::p[text()='Local']]")
     WebElement local;
 
-    public void waitForSearchResults(){
+    public SearchResultsPage waitForSearchResults(){
         //Page.waitForCondition(20, 200, obj -> searchResults.isDisplayed());
         wait.until(ExpectedConditions.visibilityOf(searchResults));
+        return this;
     }
 
     public void assertLocalOption(String countryName){
