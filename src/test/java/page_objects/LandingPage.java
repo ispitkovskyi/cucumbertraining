@@ -16,9 +16,9 @@ public class LandingPage extends Page {
         return searchField.isDisplayed();
     }
 
-    public SearchResults searchDataPacks(String searchStr){
+    public SearchResultsPage searchDataPacks(String searchStr){
         searchField.sendKeys(searchStr);
-        SearchResults searchResults = new SearchResults();
+        SearchResultsPage searchResults = new SearchResultsPage();
         searchResults.waitForSearchResults();
         return searchResults;
     }

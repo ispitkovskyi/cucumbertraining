@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class SearchResults extends Page {
+public class SearchResultsPage extends Page {
 
     private final String searchResultsXpath = "//ul[contains(@class, 'countires-list')]";
 

@@ -6,11 +6,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import page_objects.LandingPage;
-import page_objects.SearchResults;
+import page_objects.SearchResultsPage;
 
 public class AirAloDefinitionsPageObject {
     LandingPage landingPage;
-    SearchResults searchResults;
+    SearchResultsPage searchResults;
 
     @Given("^I am on the Airalo homepage object$")
     public void i_can_open_site() throws Exception{
