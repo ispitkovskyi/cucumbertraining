@@ -15,6 +15,7 @@ Feature: Searching for a local eSIM
     Given I am on the Airalo homepage
     When I tap on Regional eSIMs Tab
     Then I should see Africa, Asia, Carribean Islands, Europe, Latin America, Middle East and North Africa regions
+    And Regional tab becomes active
     When I search for Africa
     Then I should see Africa's eSIMs listed
     And I close the browser
@@ -23,6 +24,7 @@ Feature: Searching for a local eSIM
     Given I am on the Airalo homepage
     When I tap on Global eSIMs Tab
     Then I should see Global eSIMs listed
+    And Global tab becomes active
     And I close the browser
 
 
